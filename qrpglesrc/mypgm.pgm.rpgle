@@ -15,4 +15,9 @@ printf(mytext);
 
 dsply mytext;
 
+mytext = 'Witajcie wszyscy';
+printf(mytext);
+
+dsply mytext;
+
 return;
