@@ -30,7 +30,7 @@ jobs:
 
       - name: Generate lint information
         continue-on-error: true
-        run: rpglint >> $GITHUB_STEP_SUMMA
+        run: rpglint >> $GITHUB_STEP_SUMMARY
 
       - name: Generate impact information
         run: so -bf imd -l `git diff --name-only origin/main origin/${GITHUB_HEAD_REF}`
