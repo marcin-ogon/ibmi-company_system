@@ -36,7 +36,7 @@ jobs:
         run: so -bf imd -l `git diff --name-only origin/main origin/${GITHUB_HEAD_REF}`
 
       - name: Adding markdown
-        run: cat impact.md >> $GITHUB_STEP_SUMMARY
+        run: cat impact.md >> $GITHUB_STEP_SUMMARY 
 
       - name: Post comment
         uses: actions/github-script@v5
@@ -58,8 +58,8 @@ jobs:
             --cmd "mkdir -p './builds/ics_${GITHUB_HEAD_REF}'" \
             --rcwd "./builds/ics_${GITHUB_HEAD_REF}" \
             --push "." \
-            --cmd "/QOpenSys/pkgs/bin/gmake all LIBL='${{ vars.IBMI_LIB }} ${{ vars.IBMI_RPGUNIT_LIB }}' BIN_LIB=${{ vars.IBMI_LIB }}" \
-            --ignore --cmd "/QOpenSys/pkgs/bin/gmake -f test/makefile BIN_LIB=${{ vars.IBMI_LIB }} RPGUNIT_LIB=${{ vars.IBMI_RPGUNIT_LIB }}" \
+            --cmd "/QOpenSys/pkgs/bin/gmake LIBL='${{ vars.IBMI_LIB }} ${{ vars.IBMI_RPGUNIT_LIB }}' BIN_LIB=${{ vars.IBMI_BRANCH_LIB }}" \
+            --ignore --cmd "/QOpenSys/pkgs/bin/gmake -f test/makefile BIN_LIB=${{ vars.IBMI_BRANCH_LIB }} RPGUNIT_LIB=${{ vars.IBMI_RPGUNIT_LIB }}" \
             --ignore --get "./test/TEST-report.xml" "./test/TEST-report.xml"
         env:
           IBMI_HOST: ${{ secrets.IBMI_HOST }}
