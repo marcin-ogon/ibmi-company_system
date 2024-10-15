@@ -1,4 +1,4 @@
-name: Source Orbit Impact Report
+name: Verify and build project
 
 on:
   push:
