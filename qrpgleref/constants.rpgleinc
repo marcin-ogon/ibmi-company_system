@@ -31,6 +31,3 @@
 
         // 
         Dcl-C EMPTY '';
-
-        // Useless constant
-        Dcl-C USELESS 'USELESS';
